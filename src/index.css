@@ -9,3 +9,51 @@
 body {
   width: 100%;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-reset {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn {
+  overflow: hidden;
+  border-radius: 0.4rem;
+  padding: 1.5rem 4.5rem;
+  transition: color 0.3s ease-in-out, background 0.3s linear, box-shadow 500ms linear;
+
+  /* &--primary {
+    border: 1px solid var(--color-surf);
+    color: var(--color-surf);
+
+    &:hover {
+      box-shadow: 0 0 5px var(--color-surf), 0 0 12px var(--color-surf-hover);
+      color: var(--color-white);
+      background: linear-gradient(
+        117deg,
+        rgba(8, 253, 216, 1) 0%,
+        rgb(0, 199, 169) 100%
+      );
+    } */
+}
