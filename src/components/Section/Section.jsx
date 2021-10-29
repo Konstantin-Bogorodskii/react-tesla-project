@@ -11,7 +11,9 @@ function Section({ title, subtitle, background, btnLeft, btnRight }) {
       <div>
         <div className={classes.btnWrap}>
           <button className={`${classes.btn} btn-reset`}>{btnLeft}</button>
-          <button className={`${classes.btn} btn-reset ${classes.rightBtn}`}>{btnRight}</button>
+          {btnRight ? (
+            <button className={`${classes.btn} btn-reset ${classes.rightBtn}`}>{btnRight}</button>
+          ) : null}
         </div>
         <img src="/images/down-arrow.svg" alt="Scroll Down" className={classes.arrowDown} />
       </div>

@@ -41,17 +41,17 @@
   background-color: #fff;
 }
 
-@media (max-width: 768px) {
-  .wrap {
-    flex-direction: column;
-  }
-}
-
 .arrowDown {
   overflow-x: hidden;
   height: 40px;
   cursor: pointer;
   animation: animateDown infinite 1.5s;
+}
+
+@media (max-width: 768px) {
+  .btnWrap {
+    flex-direction: column;
+  }
 }
 
 @keyframes animateDown {
