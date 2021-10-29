@@ -1,7 +1,9 @@
 import React from 'react';
 import classes from './Header.module.css';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = () => {
+  console.log(MenuIcon);
   return (
     <div className={classes.wrap}>
       <a href="#">
@@ -36,6 +38,7 @@ const Header = () => {
         <a href="#" className={classes.rightMenuLink}>
           Tesla Account
         </a>
+        <div className={classes.burger}></div>
       </div>
     </div>
   );

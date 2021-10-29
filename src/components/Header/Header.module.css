@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
 
 /* .menuItem {
@@ -26,8 +27,10 @@
   flex-wrap: nowrap;
 }
 
-/* .rightMenu {
-} */
+.rightMenu {
+  display: flex;
+  align-items: center;
+}
 
 .rightMenuLink {
   font-weight: 600;
@@ -36,4 +39,14 @@
 
 .rightMenuLink:not(:last-of-type) {
   margin-right: 15px;
+}
+
+.burger {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
 }
