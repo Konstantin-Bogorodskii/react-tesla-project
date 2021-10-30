@@ -8,6 +8,7 @@
   justify-content: space-between;
   padding: 0 20px;
   min-height: 60px;
+  z-index: 2;
 }
 
 .menu {
@@ -24,7 +25,6 @@
   font-weight: 600;
   text-transform: uppercase;
   padding: 0 10px;
-  flex-wrap: nowrap;
 }
 
 .rightMenu {
@@ -35,14 +35,8 @@
 .rightMenuLink {
   font-weight: 600;
   text-transform: uppercase;
-}
-
-.rightMenuLink:not(:last-of-type) {
   margin-right: 15px;
-}
-
-.burger {
-  cursor: pointer;
+  line-height: 160%;
 }
 
 @media (max-width: 768px) {
