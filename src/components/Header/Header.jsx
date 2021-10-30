@@ -69,6 +69,12 @@ const Header = () => {
         <li>
           <a href="#">Model X</a>
         </li>
+        <li>
+          <a href="#">Model 3</a>
+        </li>
+        <li>
+          <a href="#">Model Y</a>
+        </li>
       </BurgerNav>
     </div>
   );
