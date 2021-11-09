@@ -4,44 +4,46 @@ import classes from './Header.module.css';
 import styled from 'styled-components';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={classes.wrap}>
-      <a href="#">
+      <Link to="/">
         <img src="/images/logo.svg" alt="Tesla Logo" />
-      </a>
+      </Link>
       <ul className={`list-reset ${classes.menu}`}>
         <li className={classes.menuItem}>
-          <a className={classes.menuLink} href="#">
+          <Link className={classes.menuLink} to="/">
             Model S
-          </a>
+          </Link>
         </li>
         <li className={classes.menuItem}>
-          <a className={classes.menuLink} href="#">
+          <Link className={classes.menuLink} to="/">
             Model 3
-          </a>
+          </Link>
         </li>
         <li className={classes.menuItem}>
-          <a className={classes.menuLink} href="#">
+          <Link className={classes.menuLink} to="/">
             Model X
-          </a>
+          </Link>
         </li>
         <li className={classes.menuItem}>
-          <a className={classes.menuLink} href="#">
+          <Link className={classes.menuLink} to="/">
             Model Y
-          </a>
+          </Link>
         </li>
       </ul>
       <div className={classes.rightMenu}>
-        <a href="#" className={classes.rightMenuLink}>
+        <Link to="/" className={classes.rightMenuLink}>
           Shop
-        </a>
-        <a href="#" className={classes.rightMenuLink}>
+        </Link>
+        <Link to="/" className={classes.rightMenuLink}>
           Tesla Account
-        </a>
+        </Link>
         <CustomMenu onClick={() => setIsOpen(true)} />
       </div>
       <BurgerNav show={isOpen}>
