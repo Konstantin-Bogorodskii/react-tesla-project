@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
+import HeaderMenuItem from './HeaderMenuItem';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,36 +18,12 @@ const Header = () => {
         </Link>
       </div>
       <ul className={`list-reset ${classes.menu}`}>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Model S
-          </Link>
-        </li>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Model Y
-          </Link>
-        </li>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Model 3
-          </Link>
-        </li>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Model X
-          </Link>
-        </li>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Solar Panels
-          </Link>
-        </li>
-        <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/home">
-            Accessories
-          </Link>
-        </li>
+        <HeaderMenuItem text="model s" to="model-s" />
+        <HeaderMenuItem text="model y" to="model-y" />
+        <HeaderMenuItem text="model 3" to="model-3" />
+        <HeaderMenuItem text="model x" to="model-x" />
+        <HeaderMenuItem text="Solar Panels" to="solar-panels" />
+        <HeaderMenuItem text="Accessories" to="accessories" />
       </ul>
       <div className={classes.rightMenu}>
         <Link to="/home" className={classes.rightMenuLink}>
@@ -61,45 +38,19 @@ const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={() => setIsOpen(false)} />
         </CloseWrapper>
-        <li>
-          <Link to="/home">Shop</Link>
-        </li>
-        <li>
-          <Link to="/home">Tesla Account</Link>
-        </li>
-        <li>
-          <a href="#">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="#">Used Inventory</a>
-        </li>
-        <li>
-          <a href="#">Trade-in</a>
-        </li>
-        <li>
-          <a href="#">Cybertruck</a>
-        </li>
-        <li>
-          <a href="#">Roadaster</a>
-        </li>
-        <li>
-          <a href="#">semi</a>
-        </li>
-        <li>
-          <a href="#">Charging</a>
-        </li>
-        <li>
-          <a href="#">powerwall</a>
-        </li>
-        <li>
-          <a href="#">test drive</a>
-        </li>
-        <li>
-          <a href="#">support</a>
-        </li>
-        <li>
-          <a href="#">find us</a>
-        </li>
+        <HeaderMenuItem text="shop" />
+        <HeaderMenuItem text="Tesla Account" />
+        <HeaderMenuItem text="Existing Inventory" />
+        <HeaderMenuItem text="Used Inventory" />
+        <HeaderMenuItem text="Trade-in" />
+        <HeaderMenuItem text="Cybertruck" />
+        <HeaderMenuItem text="Roadaster" />
+        <HeaderMenuItem text="semi" />
+        <HeaderMenuItem text="Charging" />
+        <HeaderMenuItem text="powerwall" />
+        <HeaderMenuItem text="test drive" />
+        <HeaderMenuItem text="find us" />
+        <HeaderMenuItem text="support" />
       </BurgerNav>
     </div>
   );

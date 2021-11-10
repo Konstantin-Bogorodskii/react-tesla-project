@@ -25,16 +25,6 @@
   gap: 15px;
 }
 
-/* .menuItem {
-} */
-
-.menuLink {
-  font-weight: 600;
-  font-size: 15px;
-  text-transform: uppercase;
-  padding: 0 10px;
-}
-
 .rightMenu {
   display: flex;
   align-items: center;

@@ -10,6 +10,7 @@ const Home = () => {
         btnLeft="Custom Order"
         btnRight="Existing Inventory"
         background="model-s.jpg"
+        id="model-s"
       />
       <Section
         title="Model Y"
@@ -17,6 +18,7 @@ const Home = () => {
         btnLeft="Custom Order"
         btnRight="Existing Inventory"
         background="model-y.jpg"
+        id="model-y"
       />
       <Section
         title="Model 3"
@@ -24,6 +26,7 @@ const Home = () => {
         btnLeft="Custom Order"
         btnRight="Existing Inventory"
         background="model-3.jpg"
+        id="model-3"
       />
       <Section
         title="Model X"
@@ -31,6 +34,7 @@ const Home = () => {
         btnLeft="Custom Order"
         btnRight="Existing Inventory"
         background="model-x.jpg"
+        id="model-x"
       />
       <Section
         title="Lowest Cost Solar Panels in America"
@@ -38,6 +42,7 @@ const Home = () => {
         btnLeft="Order Now"
         btnRight="Learn More"
         background="solar-panel.jpg"
+        id="solar-panels"
       />
       <Section
         title="Solar for New Roofs"
@@ -46,7 +51,13 @@ const Home = () => {
         btnRight="Learn More"
         background="solar-roof.jpg"
       />
-      <Section title="Accessories" subtitle="" btnLeft="Show now" background="accessories.jpg" />
+      <Section
+        title="Accessories"
+        subtitle=""
+        btnLeft="Show now"
+        background="accessories.jpg"
+        id="accessories"
+      />
     </div>
   );
 };
