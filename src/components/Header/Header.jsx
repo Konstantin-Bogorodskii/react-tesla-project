@@ -4,44 +4,55 @@ import classes from './Header.module.css';
 import styled from 'styled-components';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={classes.wrap}>
-      <Link to="/">
-        <img src="/images/logo.svg" alt="Tesla Logo" />
-      </Link>
+      <div className={classes.headerLogo}>
+        <Link to="/home">
+          <img className={classes.headerLogoImg} src="/images/logo.svg" alt="Tesla Logo" />
+        </Link>
+      </div>
       <ul className={`list-reset ${classes.menu}`}>
         <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/">
+          <Link className={classes.menuLink} to="/home">
             Model S
           </Link>
         </li>
         <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/">
+          <Link className={classes.menuLink} to="/home">
+            Model Y
+          </Link>
+        </li>
+        <li className={classes.menuItem}>
+          <Link className={classes.menuLink} to="/home">
             Model 3
           </Link>
         </li>
         <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/">
+          <Link className={classes.menuLink} to="/home">
             Model X
           </Link>
         </li>
         <li className={classes.menuItem}>
-          <Link className={classes.menuLink} to="/">
-            Model Y
+          <Link className={classes.menuLink} to="/home">
+            Solar Panels
+          </Link>
+        </li>
+        <li className={classes.menuItem}>
+          <Link className={classes.menuLink} to="/home">
+            Accessories
           </Link>
         </li>
       </ul>
       <div className={classes.rightMenu}>
-        <Link to="/" className={classes.rightMenuLink}>
+        <Link to="/home" className={classes.rightMenuLink}>
           Shop
         </Link>
-        <Link to="/" className={classes.rightMenuLink}>
+        <Link to="/home" className={classes.rightMenuLink}>
           Tesla Account
         </Link>
         <CustomMenu onClick={() => setIsOpen(true)} />
@@ -50,6 +61,12 @@ const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={() => setIsOpen(false)} />
         </CloseWrapper>
+        <li>
+          <Link to="/home">Shop</Link>
+        </li>
+        <li>
+          <Link to="/home">Tesla Account</Link>
+        </li>
         <li>
           <a href="#">Existing Inventory</a>
         </li>
@@ -66,16 +83,22 @@ const Header = () => {
           <a href="#">Roadaster</a>
         </li>
         <li>
-          <a href="#">Model S</a>
+          <a href="#">semi</a>
         </li>
         <li>
-          <a href="#">Model X</a>
+          <a href="#">Charging</a>
         </li>
         <li>
-          <a href="#">Model 3</a>
+          <a href="#">powerwall</a>
         </li>
         <li>
-          <a href="#">Model Y</a>
+          <a href="#">test drive</a>
+        </li>
+        <li>
+          <a href="#">support</a>
+        </li>
+        <li>
+          <a href="#">find us</a>
         </li>
       </BurgerNav>
     </div>
@@ -102,6 +125,7 @@ const BurgerNav = styled.div`
   text-align: start;
   transform: ${props => (props.show ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease-out;
+  overflox-y: scroll;
 
   li {
     padding: 15px 0;
@@ -109,6 +133,11 @@ const BurgerNav = styled.div`
 
     a {
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-bottom: 15px;
+      font-size: 15px;
+      padding-left: 10px;
     }
   }
 `;

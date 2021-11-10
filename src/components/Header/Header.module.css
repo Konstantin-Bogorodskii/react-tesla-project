@@ -6,16 +6,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 15px 25px 0;
   min-height: 60px;
   z-index: 2;
+}
+
+.headerLogoImg {
+  object-fit: contain;
+  flex: 1;
+  width: 90px;
+  margin-right: 100px;
 }
 
 .menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  gap: 15px;
 }
 
 /* .menuItem {
@@ -23,6 +30,7 @@
 
 .menuLink {
   font-weight: 600;
+  font-size: 15px;
   text-transform: uppercase;
   padding: 0 10px;
 }
@@ -39,8 +47,18 @@
   line-height: 160%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
   .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .headerLogoImg {
+    margin-right: 0;
+  }
+
+  .rightMenuLink {
     display: none;
   }
 }

@@ -1,5 +1,5 @@
 // import Login from '../components/Login';
-import Home from '../components/Home';
+import Home from '../components/Home/Home';
 
-export const privateRoutes = [{ path: '/', component: Home, exact: true }];
-// export const publicRoutes = [{ path: '/', component: Login, exact: true }];
+// export const privateRoutes = [{ path: '/', component: Home, exact: true }];
+export const publicRoutes = [{ path: '/home', component: Home, exact: true }];
