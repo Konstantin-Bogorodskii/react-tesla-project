@@ -1,10 +1,10 @@
 import React from 'react';
 import { publicRoutes } from '../router/routes';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function AppRouter() {
   return (
-    <Routes>
+    <Switch>
       {publicRoutes.map(route => {
         return (
           <Route
@@ -15,7 +15,8 @@ function AppRouter() {
           />
         );
       })}
-    </Routes>
+      <Redirect to="/" />
+    </Switch>
   );
 }
 

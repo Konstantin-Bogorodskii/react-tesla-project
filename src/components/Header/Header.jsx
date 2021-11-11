@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className={classes.wrap}>
       <div className={classes.headerLogo} onClick={() => scroll.scrollToTop()}>
-        <Link to="/home">
+        <Link to="/">
           <img className={classes.headerLogoImg} src="/images/logo.svg" alt="Tesla Logo" />
         </Link>
       </div>
@@ -27,10 +27,10 @@ const Header = () => {
         <HeaderMenuItem text="new roofs" to="new-roofs" />
       </ul>
       <div className={classes.rightMenu}>
-        <Link to="/home" className={classes.rightMenuLink}>
+        <Link to="/" className={classes.rightMenuLink}>
           Shop
         </Link>
-        <Link to="/home" className={classes.rightMenuLink}>
+        <Link to="/login" className={classes.rightMenuLink}>
           Tesla Account
         </Link>
         <CustomMenu onClick={() => setIsOpen(true)} />
@@ -39,19 +39,19 @@ const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={() => setIsOpen(false)} />
         </CloseWrapper>
-        <HeaderMenuItem text="shop" to="/home" />
-        <HeaderMenuItem text="Tesla Account" to="/home" />
-        <HeaderMenuItem text="Existing Inventory" to="/home" />
-        <HeaderMenuItem text="Used Inventory" to="/home" />
-        <HeaderMenuItem text="Trade-in" to="/home" />
-        <HeaderMenuItem text="Cybertruck" to="/home" />
-        <HeaderMenuItem text="Roadaster" to="/home" />
-        <HeaderMenuItem text="semi" to="/home" />
-        <HeaderMenuItem text="Charging" to="/home" />
-        <HeaderMenuItem text="powerwall" to="/home" />
-        <HeaderMenuItem text="test drive" to="/home" />
-        <HeaderMenuItem text="find us" to="/home" />
-        <HeaderMenuItem text="support" to="/home" />
+        <HeaderMenuItem text="shop" to="/" />
+        <HeaderMenuItem text="Tesla Account" to="/" />
+        <HeaderMenuItem text="Existing Inventory" to="/" />
+        <HeaderMenuItem text="Used Inventory" to="/" />
+        <HeaderMenuItem text="Trade-in" to="/" />
+        <HeaderMenuItem text="Cybertruck" to="/" />
+        <HeaderMenuItem text="Roadaster" to="/" />
+        <HeaderMenuItem text="semi" to="/" />
+        <HeaderMenuItem text="Charging" to="/" />
+        <HeaderMenuItem text="powerwall" to="/" />
+        <HeaderMenuItem text="test drive" to="/" />
+        <HeaderMenuItem text="find us" to="/" />
+        <HeaderMenuItem text="support" to="/" />
       </BurgerNav>
     </div>
   );
