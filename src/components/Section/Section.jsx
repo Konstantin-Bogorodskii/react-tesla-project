@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './Section.module.css';
 import Fade from 'react-reveal/Fade';
+import { animateScroll as scroll } from 'react-scroll';
 
-function Section({ title, subtitle, background, btnLeft, btnRight, id }) {
+function Section({ title, subtitle, background, btnLeft, btnRight, id, arrow }) {
   return (
     <section id={id}>
       <div className={classes.wrap} style={{ backgroundImage: `url('/images/${background}')` }}>
@@ -23,7 +24,16 @@ function Section({ title, subtitle, background, btnLeft, btnRight, id }) {
                 </button>
               ) : null}
             </div>
-            <img src="/images/down-arrow.svg" alt="Scroll Down" className={classes.arrowDown} />
+            {arrow ? (
+              <img
+                src="/images/down-arrow.svg"
+                alt="Scroll Down"
+                className={classes.arrowDown}
+                onClick={() => scroll.scrollToBottom()}
+              />
+            ) : (
+              <div style={{ height: '40px' }}></div>
+            )}
           </div>
         </Fade>
       </div>

@@ -11,6 +11,7 @@ const Home = () => {
         btnRight="Existing Inventory"
         background="model-s.jpg"
         id="model-s"
+        arrow={true}
       />
       <Section
         title="Model Y"
@@ -50,6 +51,7 @@ const Home = () => {
         btnLeft="Order Now"
         btnRight="Learn More"
         background="solar-roof.jpg"
+        id="new-roofs"
       />
       <Section
         title="Accessories"

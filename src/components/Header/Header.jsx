@@ -6,13 +6,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 import HeaderMenuItem from './HeaderMenuItem';
+import { animateScroll as scroll } from 'react-scroll';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={classes.wrap}>
-      <div className={classes.headerLogo}>
+      <div className={classes.headerLogo} onClick={() => scroll.scrollToTop()}>
         <Link to="/home">
           <img className={classes.headerLogoImg} src="/images/logo.svg" alt="Tesla Logo" />
         </Link>
@@ -23,7 +24,7 @@ const Header = () => {
         <HeaderMenuItem text="model 3" to="model-3" />
         <HeaderMenuItem text="model x" to="model-x" />
         <HeaderMenuItem text="Solar Panels" to="solar-panels" />
-        <HeaderMenuItem text="Accessories" to="accessories" />
+        <HeaderMenuItem text="new roofs" to="new-roofs" />
       </ul>
       <div className={classes.rightMenu}>
         <Link to="/home" className={classes.rightMenuLink}>
@@ -38,19 +39,19 @@ const Header = () => {
         <CloseWrapper>
           <CustomClose onClick={() => setIsOpen(false)} />
         </CloseWrapper>
-        <HeaderMenuItem text="shop" />
-        <HeaderMenuItem text="Tesla Account" />
-        <HeaderMenuItem text="Existing Inventory" />
-        <HeaderMenuItem text="Used Inventory" />
-        <HeaderMenuItem text="Trade-in" />
-        <HeaderMenuItem text="Cybertruck" />
-        <HeaderMenuItem text="Roadaster" />
-        <HeaderMenuItem text="semi" />
-        <HeaderMenuItem text="Charging" />
-        <HeaderMenuItem text="powerwall" />
-        <HeaderMenuItem text="test drive" />
-        <HeaderMenuItem text="find us" />
-        <HeaderMenuItem text="support" />
+        <HeaderMenuItem text="shop" to="/home" />
+        <HeaderMenuItem text="Tesla Account" to="/home" />
+        <HeaderMenuItem text="Existing Inventory" to="/home" />
+        <HeaderMenuItem text="Used Inventory" to="/home" />
+        <HeaderMenuItem text="Trade-in" to="/home" />
+        <HeaderMenuItem text="Cybertruck" to="/home" />
+        <HeaderMenuItem text="Roadaster" to="/home" />
+        <HeaderMenuItem text="semi" to="/home" />
+        <HeaderMenuItem text="Charging" to="/home" />
+        <HeaderMenuItem text="powerwall" to="/home" />
+        <HeaderMenuItem text="test drive" to="/home" />
+        <HeaderMenuItem text="find us" to="/home" />
+        <HeaderMenuItem text="support" to="/home" />
       </BurgerNav>
     </div>
   );
