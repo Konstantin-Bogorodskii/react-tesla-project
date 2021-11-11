@@ -35,23 +35,46 @@ const Header = () => {
         </Link>
         <CustomMenu onClick={() => setIsOpen(true)} />
       </div>
-      <BurgerNav show={isOpen}>
+      <BurgerNav show={isOpen} className="list-reset">
         <CloseWrapper>
           <CustomClose onClick={() => setIsOpen(false)} />
         </CloseWrapper>
-        <HeaderMenuItem text="shop" to="/" />
-        <HeaderMenuItem text="Tesla Account" to="/" />
-        <HeaderMenuItem text="Existing Inventory" to="/" />
-        <HeaderMenuItem text="Used Inventory" to="/" />
-        <HeaderMenuItem text="Trade-in" to="/" />
-        <HeaderMenuItem text="Cybertruck" to="/" />
-        <HeaderMenuItem text="Roadaster" to="/" />
-        <HeaderMenuItem text="semi" to="/" />
-        <HeaderMenuItem text="Charging" to="/" />
-        <HeaderMenuItem text="powerwall" to="/" />
-        <HeaderMenuItem text="test drive" to="/" />
-        <HeaderMenuItem text="find us" to="/" />
-        <HeaderMenuItem text="support" to="/" />
+        <li>
+          <StyledLink to="/">shop</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/login">Tesla Account</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Existing Inventory</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Used Inventory</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Trade-In</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Roadaster</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Semi</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Charging</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Powerwall</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Test Drive</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Find Us</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/">Support</StyledLink>
+        </li>
       </BurgerNav>
     </div>
   );
@@ -62,7 +85,7 @@ export default Header;
 const CustomMenu = styled(MenuIcon)`
   cursor: pointer;
 `;
-const BurgerNav = styled.div`
+const BurgerNav = styled.ul`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -77,20 +100,10 @@ const BurgerNav = styled.div`
   text-align: start;
   transform: ${props => (props.show ? 'translateX(0)' : 'translateX(100%)')};
   transition: transform 0.3s ease-out;
-  overflox-y: scroll;
 
   li {
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-    a {
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding-bottom: 15px;
-      font-size: 15px;
-      padding-left: 10px;
-    }
   }
 `;
 
@@ -100,4 +113,20 @@ const CustomClose = styled(CloseIcon)`
 const CloseWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  padding-left: 10px;
+  transition: all 0.4s ease-out;
+
+  &:hover,
+  &:focus {
+    transform: translateX(15px);
+    color: #232528;
+  }
 `;

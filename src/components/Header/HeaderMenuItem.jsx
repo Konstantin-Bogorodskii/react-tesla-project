@@ -30,6 +30,7 @@ const NavLink = styled(Link)`
     width: 0;
     height: 2px;
     background-color: #232528;
+    opacity: 0.4;
     transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
