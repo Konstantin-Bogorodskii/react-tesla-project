@@ -1,9 +1,27 @@
 import React from 'react';
-import { publicRoutes } from '../router/routes';
+import { publicRoutes, privateRoutes } from '../router/routes';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUser } from './../store/reducers/userSlice';
 
 function AppRouter() {
-  return (
+  const user = useSelector(selectUser);
+
+  return user ? (
+    <Switch>
+      {privateRoutes.map(route => {
+        return (
+          <Route
+            component={route.component}
+            path={route.path}
+            exact={route.exact}
+            key={route.path}
+          />
+        );
+      })}
+      <Redirect to="/" />
+    </Switch>
+  ) : (
     <Switch>
       {publicRoutes.map(route => {
         return (
@@ -15,7 +33,7 @@ function AppRouter() {
           />
         );
       })}
-      <Redirect to="/" />
+      <Redirect to="/login" />
     </Switch>
   );
 }
