@@ -6,6 +6,7 @@ import { selectUser } from './../store/reducers/userSlice';
 
 function AppRouter() {
   const user = useSelector(selectUser);
+  console.log(user);
 
   return user ? (
     <Switch>

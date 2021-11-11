@@ -2,23 +2,46 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import ButtonPrimary from '../../UI/ButtonPrimary';
-import ButtonSecondary from '../../UI/ButtonSecondary';
+import ButtonPrimary from '../UI/ButtonPrimary';
+import ButtonSecondary from '../UI/ButtonSecondary';
+import { auth } from '../firebase-config';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { selectUser, login } from '../store/reducers/userSlice';
+import MyInput from '../UI/MyInput';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector(selectUser);
 
-  const handlerEmail = e => {
-    setEmail(e.target.value);
+  const handlerUserEmail = e => {
+    setUserEmail(e.target.value);
   };
 
-  const handlerPassword = e => {
-    setPassword(e.target.value);
+  const handlerUserPassword = e => {
+    setUserPassword(e.target.value);
   };
 
   const signInUser = e => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(userEmail, userPassword)
+      .then(userAuth => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+          })
+        );
+
+        history.push('/account');
+      })
+      .catch(err => alert(err.message));
   };
 
   return (
@@ -36,15 +59,19 @@ function Login() {
       <Info>
         <h1>Sign In</h1>
         <Form>
-          <label htmlFor="email">Email Address</label>
-          <input type="email" id="email" value={email} onChange={handlerEmail} autoComplete="off" />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
+          <MyInput
+            id="email"
+            type="email"
+            value={userEmail}
+            onChange={handlerUserEmail}
+            text="Email Adress"
+          />
+          <MyInput
             id="password"
-            value={password}
-            onChange={handlerPassword}
-            autoComplete="off"
+            type="password"
+            value={userPassword}
+            onChange={handlerUserPassword}
+            text="Password"
           />
           <ButtonPrimary name="Sign In" type="submit" onClick={signInUser} />
         </Form>
@@ -52,7 +79,7 @@ function Login() {
           <hr /> <span>QR</span> <hr />
         </Driver>
         <Link to="/signup">
-          <ButtonSecondary name="CreateAccount" />
+          <ButtonSecondary name="Create Account" />
         </Link>
       </Info>
     </Wrap>
