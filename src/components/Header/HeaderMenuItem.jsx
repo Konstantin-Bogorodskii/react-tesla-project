@@ -18,7 +18,7 @@ const NavLink = styled(Link)`
   font-weight: 600;
   font-size: 15px;
   text-transform: uppercase;
-  padding: 10px 10px 3px;
+  padding: 5px;
   cursor: pointer;
   position: relative;
 
