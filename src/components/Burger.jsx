@@ -4,10 +4,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBurger, openBurger, closeBurger } from '../store/reducers/burgerSlice';
+import { selectUser } from '../store/reducers/userSlice';
 
 function Burger() {
   const dispatch = useDispatch();
   const burger = useSelector(selectBurger);
+  const user = useSelector(selectUser);
 
   return (
     <BurgerNav show={burger} className="list-reset">
@@ -18,7 +20,7 @@ function Burger() {
         <StyledLink to="/">shop</StyledLink>
       </li>
       <li>
-        <StyledLink to="/login">Tesla Account</StyledLink>
+        <StyledLink to={user ? '/account' : '/login'}>Tesla Account</StyledLink>
       </li>
       <li>
         <StyledLink to="/">Existing Inventory</StyledLink>

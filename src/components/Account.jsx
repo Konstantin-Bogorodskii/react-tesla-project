@@ -44,6 +44,7 @@ function Account() {
 const Wrap = styled.div``;
 const Header = styled.div``;
 const Logo = styled.div``;
+
 const MenuList = styled.ul`
   display: flex;
   align-items: center;

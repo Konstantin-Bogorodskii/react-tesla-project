@@ -1,40 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase-config';
-import { selectUser, login } from '../store/reducers/userSlice';
+import { login } from '../store/reducers/userSlice';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import ButtonPrimary from '../UI/ButtonPrimary';
 import ButtonSecondary from '../UI/ButtonSecondary';
 import MyInput from '../UI/MyInput';
+import useInput from '../hooks/useInput';
+
+// Please fill out this field.
+// Please enter an email address.
 
 function SignUp() {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-  const [userFirstName, setUserFirstName] = useState('');
-  const [userLastName, setUserLastName] = useState('');
+  const userEmail = useInput('', { isEmpty: true, minLength: 5 });
+  const userPassword = useInput('', { isEmpty: true, minLength: 3 });
+  const userFirstName = useInput('', { isEmpty: true, minLength: 3 });
+  const userLastName = useInput('', { isEmpty: true, minLength: 3 });
   const dispatch = useDispatch();
   const history = useHistory();
-  // const user = useSelector(selectUser);
 
   const signUpUser = e => {
     e.preventDefault();
 
     auth
-      .createUserWithEmailAndPassword(userEmail, userPassword)
+      .createUserWithEmailAndPassword(userEmail.value, userPassword.value)
       .then(userAuth => {
         userAuth.user
           .updateProfile({
-            displayName: userFirstName + ' ' + userLastName,
+            displayName: userFirstName.value + ' ' + userLastName.value,
           })
           .then(() => {
             dispatch(
               login({
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
-                displayName: userFirstName + ' ' + userLastName,
+                displayName: userFirstName.value + ' ' + userLastName.value,
               })
             );
 
@@ -42,22 +45,6 @@ function SignUp() {
           });
       })
       .catch(err => alert(err.message));
-  };
-
-  const handlerUserFirstName = e => {
-    setUserFirstName(e.target.value);
-  };
-
-  const handlerUserLastName = e => {
-    setUserLastName(e.target.value);
-  };
-
-  const handlerUserEmail = e => {
-    setUserEmail(e.target.value);
-  };
-
-  const handlerUserPassword = e => {
-    setUserPassword(e.target.value);
   };
 
   return (
@@ -75,34 +62,10 @@ function SignUp() {
       <Info>
         <h1>Create Account</h1>
         <Form>
-          <MyInput
-            id="firstName"
-            type="text"
-            value={userFirstName}
-            onChange={handlerUserFirstName}
-            text="First Name"
-          />
-          <MyInput
-            id="lastName"
-            type="text"
-            value={userLastName}
-            onChange={handlerUserLastName}
-            text="Last Name"
-          />
-          <MyInput
-            id="email"
-            type="email"
-            value={userEmail}
-            onChange={handlerUserEmail}
-            text="Email Adress"
-          />
-          <MyInput
-            id="password"
-            type="password"
-            value={userPassword}
-            onChange={handlerUserPassword}
-            text="Password"
-          />
+          <MyInput id="firstName" type="text" useInput={userFirstName} text="First Name *" />
+          <MyInput id="lastName" type="text" useInput={userLastName} text="Last Name *" />
+          <MyInput id="email" type="email" useInput={userEmail} text="Email Adress *" />
+          <MyInput id="password" type="password" useInput={userPassword} text="Password *" />
           <ButtonPrimary name="Create Account" type="submit" onClick={signUpUser} />
         </Form>
         <Driver>
