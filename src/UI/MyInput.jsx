@@ -13,6 +13,12 @@ function MyInput({ id, type, useInput, text }) {
         autoComplete="off"
         name={id}
       />
+      {useInput.isDirty && useInput.isEmpty && (
+        <div style={{ color: 'red', margin: '5px 0' }}>{useInput.emptyError}</div>
+      )}
+      {useInput.isDirty && useInput.isEmailCorrect && (
+        <div style={{ color: 'red' }}>{useInput.isEmailCorrectText}</div>
+      )}
     </>
   );
 }

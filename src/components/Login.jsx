@@ -9,27 +9,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { selectUser, login } from '../store/reducers/userSlice';
 import MyInput from '../UI/MyInput';
+import useInput from '../hooks/useInput';
 
 function Login() {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const userEmail = useInput('', { isEmpty: true });
+  const userPassword = useInput('', { isEmpty: true });
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(selectUser);
-
-  const handlerUserEmail = e => {
-    setUserEmail(e.target.value);
-  };
-
-  const handlerUserPassword = e => {
-    setUserPassword(e.target.value);
-  };
 
   const signInUser = e => {
     e.preventDefault();
 
     auth
-      .signInWithEmailAndPassword(userEmail, userPassword)
+      .signInWithEmailAndPassword(userEmail.value, userPassword.value)
       .then(userAuth => {
         dispatch(
           login({
@@ -59,20 +52,8 @@ function Login() {
       <Info>
         <h1>Sign In</h1>
         <Form>
-          <MyInput
-            id="email"
-            type="email"
-            value={userEmail}
-            onChange={handlerUserEmail}
-            text="Email Adress"
-          />
-          <MyInput
-            id="password"
-            type="password"
-            value={userPassword}
-            onChange={handlerUserPassword}
-            text="Password"
-          />
+          <MyInput id="email" type="email" useInput={userEmail} text="Email Adress" />
+          <MyInput id="password" type="password" useInput={userPassword} text="Password" />
           <ButtonPrimary name="Sign In" type="submit" onClick={signInUser} />
         </Form>
         <Driver>

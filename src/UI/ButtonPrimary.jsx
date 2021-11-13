@@ -1,9 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function ButtonPrimary({ name, type, onClick }) {
+function ButtonPrimary({ name, type, onClick, useInputs }) {
+  const [userFirstName, userLastName, userEmail, userPassword] = useInputs;
+
   return (
-    <Button onClick={onClick} type={type}>
+    <Button
+      disabled={
+        !userFirstName.inputValid ||
+        !userLastName.inputValid ||
+        !userEmail.inputValid ||
+        !userPassword.inputValid
+      }
+      onClick={onClick}
+      type={type}
+    >
       {name}
     </Button>
   );

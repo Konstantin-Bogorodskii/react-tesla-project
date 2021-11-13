@@ -11,14 +11,11 @@ import ButtonSecondary from '../UI/ButtonSecondary';
 import MyInput from '../UI/MyInput';
 import useInput from '../hooks/useInput';
 
-// Please fill out this field.
-// Please enter an email address.
-
 function SignUp() {
-  const userEmail = useInput('', { isEmpty: true, minLength: 5 });
-  const userPassword = useInput('', { isEmpty: true, minLength: 3 });
-  const userFirstName = useInput('', { isEmpty: true, minLength: 3 });
-  const userLastName = useInput('', { isEmpty: true, minLength: 3 });
+  const userEmail = useInput('', { isEmpty: true, isEmailCorrect: false });
+  const userPassword = useInput('', { isEmpty: true });
+  const userFirstName = useInput('', { isEmpty: true });
+  const userLastName = useInput('', { isEmpty: true });
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -66,13 +63,18 @@ function SignUp() {
           <MyInput id="lastName" type="text" useInput={userLastName} text="Last Name *" />
           <MyInput id="email" type="email" useInput={userEmail} text="Email Adress *" />
           <MyInput id="password" type="password" useInput={userPassword} text="Password *" />
-          <ButtonPrimary name="Create Account" type="submit" onClick={signUpUser} />
+          <ButtonPrimary
+            name="Create Account"
+            type="submit"
+            onClick={signUpUser}
+            useInputs={[userFirstName, userLastName, userEmail, userPassword]}
+          />
         </Form>
         <Driver>
           <hr /> <span>QR</span> <hr />
         </Driver>
         <Link to="/login" style={{ marginBottom: '30px' }}>
-          <ButtonSecondary name="Sign In" />
+          <ButtonSecondary name="Sign In" butt />
         </Link>
       </Info>
     </Wrap>
