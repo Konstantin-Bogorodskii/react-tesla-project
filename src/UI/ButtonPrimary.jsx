@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 function ButtonPrimary({ name, type, onClick, useInputs }) {
-  const [userEmail, userPassword, userFirstName = {}, userLastName = {}] = useInputs;
+  const [userEmail, userPassword, userFirstName = userEmail, userLastName = userEmail] = useInputs;
 
   return (
     <Button

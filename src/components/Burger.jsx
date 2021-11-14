@@ -29,9 +29,6 @@ function Burger() {
         <StyledLink to="/">Used Inventory</StyledLink>
       </li>
       <li>
-        <StyledLink to="/">Trade-In</StyledLink>
-      </li>
-      <li>
         <StyledLink to="/">Roadaster</StyledLink>
       </li>
       <li>
