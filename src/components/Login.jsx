@@ -54,7 +54,12 @@ function Login() {
         <Form>
           <MyInput id="email" type="email" useInput={userEmail} text="Email Adress" />
           <MyInput id="password" type="password" useInput={userPassword} text="Password" />
-          <ButtonPrimary name="Sign In" type="submit" onClick={signInUser} />
+          <ButtonPrimary
+            name="Sign In"
+            type="submit"
+            onClick={signInUser}
+            useInputs={[userEmail, userPassword]}
+          />
         </Form>
         <Driver>
           <hr /> <span>QR</span> <hr />

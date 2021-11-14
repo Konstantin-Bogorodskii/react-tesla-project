@@ -67,7 +67,7 @@ function SignUp() {
             name="Create Account"
             type="submit"
             onClick={signUpUser}
-            useInputs={[userFirstName, userLastName, userEmail, userPassword]}
+            useInputs={[userEmail, userPassword, userFirstName, userLastName]}
           />
         </Form>
         <Driver>
