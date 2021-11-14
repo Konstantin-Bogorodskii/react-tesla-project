@@ -14,8 +14,8 @@ import useInput from '../hooks/useInput';
 function SignUp() {
   const userEmail = useInput('', { isEmpty: true, isEmailCorrect: false });
   const userPassword = useInput('', { isEmpty: true });
-  const userFirstName = useInput('', { isEmpty: true });
-  const userLastName = useInput('', { isEmpty: true });
+  const userFirstName = useInput('', { isEmpty: true, isFirstNameCorrect: false });
+  const userLastName = useInput('', { isEmpty: true, isLastNameCorrect: false });
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -122,7 +122,6 @@ const Logo = styled.div`
     object-fit: contain;
     flex: 1;
     width: 90px;
-    margin-right: 100px;
   }
 `;
 

@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react';
 
 const useValidateInput = (value, validations) => {
-  const [isEmpty, setIsEmpty] = useState(true);
-  const [isEmailCorrect, setIsEmailCorrect] = useState(false);
   const [inputValid, setInputValid] = useState(false);
-  const [emptyError, setEmptyError] = useState('Please fill out this field.');
-  const [isEmailCorrectText, setIsEmailCorrectText] = useState('Please, enter valid email address');
+
+  const [isEmpty, setIsEmpty] = useState(true);
+  const [emptyError, setEmptyError] = useState('Please fill out this field');
+
+  const [isEmailCorrect, setIsEmailCorrect] = useState(false);
+  const [isEmailCorrectText, setIsEmailCorrectText] = useState(
+    'Please enter a valid email address'
+  );
+
+  const [isFirstNameCorrect, setIsFirstNameCorrect] = useState(false);
+  const [firstNameError, setFirstNameError] = useState('Please enter a valid First Name');
+
+  const [isLastNameCorrect, setIsLastNameCorrect] = useState(false);
+  const [lastNameError, setLastNameError] = useState('Please enter a valid Last Name');
 
   useEffect(() => {
     for (const validation in validations) {
@@ -20,8 +30,24 @@ const useValidateInput = (value, validations) => {
               setIsEmailCorrect(false);
             }
             break;
+          case 'isFirstNameCorrect':
+            const reFirstName = /^[a-z ,.'-]+$/i;
+            if (!reFirstName.test(String(value).toLowerCase())) {
+              setIsFirstNameCorrect(true);
+            } else {
+              setIsFirstNameCorrect(false);
+            }
+            break;
+          case 'isLastNameCorrect':
+            const reLastName = /^[a-z ,.'-]+$/i;
+            if (!reLastName.test(String(value).toLowerCase())) {
+              setIsLastNameCorrect(true);
+            } else {
+              setIsLastNameCorrect(false);
+            }
+            break;
           case 'isEmpty':
-            value ? setIsEmpty(false) : setIsEmpty(true);
+            value.length === 0 ? setIsEmpty(true) : setIsEmpty(false);
             break;
         }
       }
@@ -29,14 +55,24 @@ const useValidateInput = (value, validations) => {
   }, [value]);
 
   useEffect(() => {
-    if (isEmpty || isEmailCorrect) {
+    if (isEmpty || isEmailCorrect || isFirstNameCorrect || isLastNameCorrect) {
       setInputValid(false);
     } else {
       setInputValid(true);
     }
-  }, [isEmpty, isEmailCorrect]);
+  }, [isEmpty, isEmailCorrect, isFirstNameCorrect || isLastNameCorrect]);
 
-  return { isEmpty, inputValid, isEmailCorrectText, emptyError, isEmailCorrect };
+  return {
+    isEmpty,
+    inputValid,
+    isEmailCorrectText,
+    emptyError,
+    isEmailCorrect,
+    isFirstNameCorrect,
+    firstNameError,
+    isLastNameCorrect,
+    lastNameError,
+  };
 };
 
 export default useValidateInput;

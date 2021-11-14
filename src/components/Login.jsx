@@ -12,7 +12,7 @@ import MyInput from '../UI/MyInput';
 import useInput from '../hooks/useInput';
 
 function Login() {
-  const userEmail = useInput('', { isEmpty: true });
+  const userEmail = useInput('', { isEmpty: true, isEmailCorrect: false });
   const userPassword = useInput('', { isEmpty: true });
   const dispatch = useDispatch();
   const history = useHistory();
@@ -110,7 +110,6 @@ const Logo = styled.div`
     object-fit: contain;
     flex: 1;
     width: 90px;
-    margin-right: 100px;
   }
 `;
 const Info = styled.div`
