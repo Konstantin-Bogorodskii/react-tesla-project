@@ -26,6 +26,10 @@ const Button = styled.button`
     background-color: #171a20;
     color: #fff;
   }
+
+  @media (max-width: 560px) {
+    width: 98%;
+  }
 `;
 
 export default ButtonSecondary;

@@ -34,6 +34,7 @@ const ButtonCar = styled.button`
   margin-bottom: 30px;
   transition: all 0.4s;
   border: 3px solid #3e6ae1;
+  margin-right: 10px;
 
   &:hover {
     background-color: #3457b1;
@@ -50,6 +51,10 @@ const CarWrap = styled.div`
     font-size: xx-large;
     margin-top: -180px;
     text-transform: capitalize;
+
+    @media (max-width: 502px) {
+      margin-top: -80px;
+    }
   }
 `;
 const CarImg = styled.div`
@@ -61,12 +66,19 @@ const CarImg = styled.div`
 const Actions = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: -40px;
 
   button {
     width: 230px;
     margin-bottom: 30px;
+  }
+
+  @media (max-width: 502px) {
+    gap: 0px;
+    justify-content: center;
+    margin-top: 10px;
   }
 `;
 const Info = styled.p`

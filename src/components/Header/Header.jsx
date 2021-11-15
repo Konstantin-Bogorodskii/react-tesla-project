@@ -14,7 +14,6 @@ import { openBurger, selectBurger } from '../../store/reducers/burgerSlice';
 const Header = () => {
   const user = useSelector(selectUser);
   const burger = useSelector(selectBurger);
-  console.log(burger);
   const dispatch = useDispatch();
 
   return (

@@ -56,9 +56,9 @@ function Account() {
               log out
             </StyledLink>
           </li>
-          <CustomMenu onClick={() => dispatch(openBurger())} />
-          <Burger />
         </MenuList>
+        <CustomMenu onClick={() => dispatch(openBurger())} />
+        <Burger />
       </Header>
       <Info>
         <Person>
@@ -91,6 +91,8 @@ const Header = styled.div`
   color: white;
 `;
 const Logo = styled.div`
+  flex: 1;
+
   img {
     object-fit: contain;
     width: 80px;
@@ -102,6 +104,11 @@ const MenuList = styled.ul`
   display: flex;
   gap: 20px;
   align-items: center;
+  margin-right: 15px;
+
+  @media (max-width: 870px) {
+    display: none;
+  }
 `;
 const StyledLink = styled(Link)`
   color: white;
@@ -119,15 +126,29 @@ const CustomMenu = styled(MenuIcon)`
 const Info = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   padding: 60px 140px;
   padding-bottom: 30px;
+
+  @media (max-width: 850px) {
+    padding: 5%;
+  }
+
+  @media (max-width: 580px) {
+    justify-content: center;
+  }
 `;
 const Person = styled.div`
   h4 {
     font-weight: 700;
     text-transform: capitalize;
     font-size: x-large;
+    margin-right: 15px;
+  }
+
+  @media (max-width: 580px) {
+    margin-bottom: 15px;
   }
 `;
 const InfoRight = styled.div`

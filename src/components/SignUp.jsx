@@ -129,7 +129,7 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 330px;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
 
@@ -137,6 +137,10 @@ const Info = styled.div`
     font-weight: 500;
     font-size: 40px;
     margin-left: -10px;
+  }
+
+  @media (max-width: 360px) {
+    min-width: 0;
   }
 `;
 

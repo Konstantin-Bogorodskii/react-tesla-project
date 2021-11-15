@@ -1,21 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBurger, openBurger, closeBurger } from '../store/reducers/burgerSlice';
-import { selectUser } from '../store/reducers/userSlice';
+import { logout, selectUser } from '../store/reducers/userSlice';
+import { auth } from '../firebase-config';
 
 function Burger() {
   const dispatch = useDispatch();
   const burger = useSelector(selectBurger);
   const user = useSelector(selectUser);
+  const history = useHistory();
+
+  const handlerLogout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        dispatch(logout());
+        history.push('/login');
+      })
+      .catch(err => alert(err.message));
+  };
 
   return (
     <BurgerNav show={burger} className="list-reset">
       <CloseWrapper>
         <CustomClose onClick={() => dispatch(closeBurger())} />
       </CloseWrapper>
+      <li>
+        <StyledLink to="" onClick={handlerLogout}>
+          LOG OUT
+        </StyledLink>
+      </li>
       <li>
         <StyledLink to="/">shop</StyledLink>
       </li>
